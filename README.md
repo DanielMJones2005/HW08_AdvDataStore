@@ -44,8 +44,8 @@
    
    ## Precipitation Analysis
    - Design a query to retrieve the last 12 months of precipitation data.
-         - Last Date: 2017-08-23
-         - Query Date: 2016-08-23
+           - Last Date: 2017-08-23
+           - Query Date: 2016-08-23
    - Select only the date and prcp values.
    - Load the query results into a Pandas DataFrame and set the index to the date column.
    - Sort the DataFrame values by date.
@@ -62,17 +62,17 @@
         - Station: USC00519281, 2772 Observations
         
    - Using the station id from the previous query, calculate the lowest temperature recorded.
-         - USC00519281, 54.0
+           - USC00519281, 54.0
    - Highest temperature recorded.
-         - USC00519281, 85.0
+           - USC00519281, 85.0
    - Average temperature most active station.
-         - USC00519281, 71.66378066378067 
+           - USC00519281, 71.66378066378067 
    - Design a query to retrieve the last 12 months of temperature observation data (tobs).
         - Filter by the station with the highest number of observations.
         - Plot the results as a histogram with bins=12.  
     ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.tobs.png)   
-    
-    ## Step 2 - Climate App
+  
+  ## Step 2: Climate App
     - See [routes_dev.v1.py](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/routes_master.py)
     * /
       ** Home page.
@@ -97,9 +97,11 @@
   - Is there a meaningful difference between the temperature in, for example, June and December?
       - Yes, there is a meaningful difference between the temperature in June vs December.
       - June Box Plot (tobs)
+      
          ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.June_tobs_Box.png)  
          
-      - December Box Plot (tobs)   
+      - December Box Plot (tobs) 
+      
          ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.Dec_tobs_Box.png)
       
   - Identify the average temperature in June at all stations across all available years in the dataset. 
@@ -110,8 +112,8 @@
       - Will you use a paired t-test, or an unpaired t-test? Why?
           - An unpaired t-test because the two populations have different number of samples
           - If the p value is less than 0.05, reject the null hypothesis, and say found a significant difference
-          - P-Value of 4.193529835915755e-187
-          - June tobs vs Dec tobs: The differences between some of the means are statistically significant  
+               - P-Value of 4.193529835915755e-187
+               - June tobs vs Dec tobs: The differences between some of the means are statistically significant  
   
   ## Temperature Analysis II
   - The starter notebook contains a function called calc_temps that will accept a start date and end date in the format %Y-%m-%d and return the minimum, average, and maximum temperatures for that range of dates.
@@ -127,20 +129,20 @@
   
   ## Daily Rainfall Average
   - Calculate the rainfall per weather station using the previous year's matching dates.
-         - Prior Year Dates:
-            - start_date = "2017-06-01"
-            - end_date = "2017-06-15"
+           - Prior Year Dates:
+                  - start_date = "2017-06-01"
+                  - end_date = "2017-06-15"
   - Calculate the daily normals. 
-         - Normals are the averages for the min, avg, and max temperatures.
-         - You are provided with a function called daily_normals that will calculate the daily normals for a specific date. 
-             - This date string will be in the format %m-%d. 
-             - Be sure to use all historic tobs that match that date string.
-         - Modified the function daily_normals into 3 separate functions to append new columns to a dataframe
-             - daily_min
-             - daily_avg
-             - daily_max
+           - Normals are the averages for the min, avg, and max temperatures.
+           - You are provided with a function called daily_normals that will calculate the daily normals for a specific date. 
+                 - This date string will be in the format %m-%d. 
+                 - Be sure to use all historic tobs that match that date string.
+           - Modified the function daily_normals into 3 separate functions to append new columns to a dataframe
+                 - daily_min
+                 - daily_avg
+                 - daily_max
   - Create a list of dates for your trip in the format %m-%d. 
-         - dates between 2017-06-01 to 2017-06-15
+           - dates between 2017-06-01 to 2017-06-15
   - Use the daily_normals function to calculate the normals for each date string and append the results to a list.
   - Load the list of daily normals into a Pandas DataFrame and set the index equal to the date.
   - Use Pandas to plot an area plot (stacked=False) for the daily normals.
