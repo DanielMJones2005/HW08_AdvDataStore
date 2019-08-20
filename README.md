@@ -44,15 +44,15 @@
    
    ## Precipitation Analysis
    - Design a query to retrieve the last 12 months of precipitation data.
-         - Last Date: 2017-08-23
-         - Query Date: 2016-08-23
+     - Last Date: 2017-08-23
+     - Query Date: 2016-08-23
    - Select only the date and prcp values.
    - Load the query results into a Pandas DataFrame and set the index to the date column.
    - Sort the DataFrame values by date.
    - Plot the results using the DataFrame plot method
    
    ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.prcp.png)
-   
+     
    ## Station Analysis
    - Design a query to calculate the total number of stations.
         - Total # Stations: 9
@@ -143,7 +143,7 @@
           - daily_avg
           - daily_max
   - Create a list of dates for your trip in the format %m-%d. 
-          - dates between 2017-06-01 to 2017-06-15
+       - dates between 2017-06-01 to 2017-06-15
   - Use the daily_normals function to calculate the normals for each date string and append the results to a list.
   - Load the list of daily normals into a Pandas DataFrame and set the index equal to the date.
   - Use Pandas to plot an area plot (stacked=False) for the daily normals.
