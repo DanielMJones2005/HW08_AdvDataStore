@@ -70,9 +70,8 @@
    - Design a query to retrieve the last 12 months of temperature observation data (tobs).
         - Filter by the station with the highest number of observations.
         - Plot the results as a histogram with bins=12.  
+    ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.tobs.png)
         
-    ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.tobs.png)   
-  
   ## Step 2: Climate App
     - See [routes_dev.v1.py](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/routes_master.py)
     * /
