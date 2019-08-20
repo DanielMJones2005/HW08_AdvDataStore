@@ -33,7 +33,7 @@
   ## Step 1 - Climate Analysis and Exploration
   - Use the provided starter notebook and hawaii.sqlite files to complete your climate analysis and data exploration.
   - Choose a start date and end date for your trip. Make sure that your vacation range is approximately 3-15 days total.
-      - Trip Dates:
+       - Trip Dates:
             - start_date = "2018-06-01"
             - end_date = "2018-06-15"
        - Prior Year Dates:
@@ -44,10 +44,13 @@
    
    ## Precipitation Analysis
    - Design a query to retrieve the last 12 months of precipitation data.
+         - Last Date: 2017-08-23
+         - Query Date: 2016-08-23
    - Select only the date and prcp values.
    - Load the query results into a Pandas DataFrame and set the index to the date column.
    - Sort the DataFrame values by date.
    - Plot the results using the DataFrame plot method
+   
    ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.prcp.png)
    
    ## Station Analysis
@@ -57,6 +60,13 @@
    - List the stations and observation counts in descending order.
    - Which station has the highest number of observations?
         - Station: USC00519281, 2772 Observations
+        
+   - Using the station id from the previous query, calculate the lowest temperature recorded.
+         - USC00519281, 54.0
+   - Highest temperature recorded.
+         - USC00519281, 85.0
+   - Average temperature most active station.
+         - USC00519281, 71.66378066378067 
    - Design a query to retrieve the last 12 months of temperature observation data (tobs).
         - Filter by the station with the highest number of observations.
         - Plot the results as a histogram with bins=12.  
@@ -70,12 +80,12 @@
     * /api/v1.0/precipitation
       ** Convert the query results to a Dictionary using date as the key and prcp as the value.
       ** Return the JSON representation of your dictionary.
-  * /api/v1.0/stations
+    * /api/v1.0/stations
       ** Return a JSON list of stations from the dataset.
-  * /api/v1.0/tobs
+    * /api/v1.0/tobs
       ** query for the dates and temperature observations from a year from the last data point.
       ** Return a JSON list of Temperature Observations (tobs) for the previous year.
-  * /api/v1.0/<start> and /api/v1.0/<start>/<end>
+    * /api/v1.0/<start> and /api/v1.0/<start>/<end>
       ** Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start or start-end range.
       ** When given the start only, calculate TMIN, TAVG, and TMAX for all dates greater than and equal to the start date.
       ** When given the start and the end date, calculate the TMIN, TAVG, and TMAX for dates between the start and end date inclusive.
@@ -86,15 +96,20 @@
   - Hawaii is reputed to enjoy mild weather all year. 
   - Is there a meaningful difference between the temperature in, for example, June and December?
       - Yes, there is a meaningful difference between the temperature in June vs December.
+      - June Box Plot (tobs)
          ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.June_tobs_Box.png)  
+         
+      - December Box Plot (tobs)   
          ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.Dec_tobs_Box.png)
       
   - Identify the average temperature in June at all stations across all available years in the dataset. 
+      - 74.9441176470588
   - Do the same for December temperature.
+      - 71.04152933421226
   - Use the t-test to determine whether the difference in the means, if any, is statistically significant. 
       - Will you use a paired t-test, or an unpaired t-test? Why?
-          - An unpaired t-test because the two population have different number of samples
-          - If the p value is less than 0.05, you reject the null hypothesis, and say that you find a significant difference
+          - An unpaired t-test because the two populations have different number of samples
+          - If the p value is less than 0.05, reject the null hypothesis, and say found a significant difference
           - P-Value of 4.193529835915755e-187
           - June tobs vs Dec tobs: The differences between some of the means are statistically significant  
   
@@ -104,6 +119,7 @@
   - Plot the min, avg, and max temperature from your previous query as a bar chart.
       - Use the average temperature as the bar height.
       - Use the peak-to-peak (tmax-tmin) value as the y error bar (yerr).
+      
       ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.TripAvgTemp.png)
      
    - Calculate the total amount of rainfall per weather station for your trip dates using the previous year's matching dates.
@@ -111,9 +127,22 @@
   
   ## Daily Rainfall Average
   - Calculate the rainfall per weather station using the previous year's matching dates.
-  - Calculate the daily normals. Normals are the averages for the min, avg, and max temperatures.
-  - You are provided with a function called daily_normals that will calculate the daily normals for a specific date. This date string will be in the format %m-%d. Be sure to use all historic tobs that match that date string.
-  - Create a list of dates for your trip in the format %m-%d. Use the daily_normals function to calculate the normals for each date string and append the results to a list.
+         - Prior Year Dates:
+            - start_date = "2017-06-01"
+            - end_date = "2017-06-15"
+  - Calculate the daily normals. 
+         - Normals are the averages for the min, avg, and max temperatures.
+         - You are provided with a function called daily_normals that will calculate the daily normals for a specific date. 
+             - This date string will be in the format %m-%d. 
+             - Be sure to use all historic tobs that match that date string.
+         - Modified the function daily_normals into 3 separate functions to append new columns to a dataframe
+             - daily_min
+             - daily_avg
+             - daily_max
+  - Create a list of dates for your trip in the format %m-%d. 
+         - dates between 2017-06-01 to 2017-06-15
+  - Use the daily_normals function to calculate the normals for each date string and append the results to a list.
   - Load the list of daily normals into a Pandas DataFrame and set the index equal to the date.
   - Use Pandas to plot an area plot (stacked=False) for the daily normals.
+  
       ![alt text](https://github.com/DanielMJones2005/HW08_AdvDataStore/blob/master/Img/hw.dailynormals.png)
